@@ -2,4 +2,6 @@ en:
   hello: "Hello"
   footer:
     company_description: "Your Companion on the Path of Career Development"
-    company_name: "Agency"
+    company_name: "Myagency"
+    contact_us: "Contact Us"
+    quick_links: "Quick Links"

@@ -12,4 +12,6 @@ Rails.application.routes.draw do
 
   # Routes for switching the localization
   post 'change_locale' => 'application#change_locale'
+
+  resources :pages, only: %i[show], param: :slug
 end

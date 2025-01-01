@@ -13,7 +13,7 @@ export default class extends Controller {
 
     const locale = event.currentTarget.dataset.locale;
 
-    // Thêm token CSRF
+    // Get token CSRF
     const token = document.querySelector('meta[name="csrf-token"]').content;
 
     fetch("/change_locale", {

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="<%= I18n.locale %>">
   <head>
     <title><%= content_for(:title) || "Myagency" %></title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -19,7 +19,9 @@
 
   <body>
     <%= render 'shared/navbar' %>
-    <%= yield %>
+    <%= turbo_frame_tag "content" do %>
+      <%= yield %>
+    <% end %>
     <%= render 'shared/footer' %>
   </body>
 </html>

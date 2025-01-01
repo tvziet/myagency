@@ -52,6 +52,12 @@ group :development do
   gem 'web-console'
 
   gem 'htmlbeautifier', '~> 1.4'
+
+  gem 'annotate', '~> 3.2'
 end
 
 gem 'rails-i18n', '~> 7.0'
+
+gem 'friendly_id', '~> 5.5'
+
+gem "ruby-progressbar", "~> 1.13"
