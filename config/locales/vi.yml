@@ -1,1 +1,5 @@
 vi:
+  hello: "Xin chào"
+  footer:
+    company_description: "Người Bạn Đồng Hành Trên Con Đường Phát Triển Sự Nghiệp"
+    company_name: "Myagency"

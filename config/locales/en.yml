@@ -1,1 +1,5 @@
 en:
+  hello: "Hello"
+  footer:
+    company_description: "Your Companion on the Path of Career Development"
+    company_name: "Agency"

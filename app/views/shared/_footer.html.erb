@@ -1,0 +1,56 @@
+<footer class="bg-white border-b border-gray-200">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <!-- Company Info -->
+      <div class="text-center md:text-left">
+        <%= image_tag 'logo.png', class: "h-8 w-auto mx-auto md:mx-0 mb-4" %>
+        <p class="text-sm">
+          <%= t('footer.company_description') %>
+        </p>
+      </div>
+      <!-- Quick Links -->
+      <div class="text-center md:text-left">
+        <h3 class="text-white font-semibold mb-4"><%= t('footer.quick_links') %></h3>
+        <ul class="space-y-2">
+          <li>
+            <%= link_to t('footer.about'), root_path, 
+                                class: "text-[#4a6c91] hover:text-[#243649] transition-colors duration-300" %>
+          </li>
+          <li>
+            <%= link_to t('footer.services'), root_path, 
+                                class: "text-[#4a6c91] hover:text-[#243649] transition-colors duration-300" %>
+          </li>
+          <li>
+            <%= link_to t('footer.contact'), root_path, 
+                                class: "text-[#4a6c91] hover:text-[#243649] transition-colors duration-300" %>
+          </li>
+        </ul>
+      </div>
+      <!-- Contact Info -->
+      <div class="text-center md:text-left">
+        <h3 class="text-white font-semibold mb-4"><%= t('footer.contact_us') %></h3>
+        <div class="space-y-2 text-[#4a6c91] hover:text-[#243649] transition-colors duration-300">
+          <p>
+            <i class="fas fa-map-marker-alt mr-2"></i>
+            <%= t('footer.address') %>
+          </p>
+          <p>
+            <i class="fas fa-phone mr-2"></i>
+            <%= t('footer.phone') %>
+          </p>
+          <p>
+            <i class="fas fa-envelope mr-2"></i>
+            <%= mail_to 'contact@example.com', 
+                                class: "text-[#4a6c91] hover:text-[#243649] transition-colors duration-300" %>
+          </p>
+        </div>
+      </div>
+    </div>
+    <!-- Copyright -->
+    <div class="mt-8 pt-8 text-center">
+      <p class="text-[#4a6c91] hover:text-[#243649] transition-colors duration-300 text-sm">
+        © <%= Time.current.year %> <%= t('footer.company_name') %>
+      </p>
+    </div>
+  </div>
+</footer>
