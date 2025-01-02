@@ -15,7 +15,7 @@
           <% Page.except_home.ordered.find_each do |page| %>
             <li>
               <%= link_to (I18n.locale == :en ? page.english_name : page.name),
-                         page_path(I18n.locale == :en ? page.english_slug : page.slug),
+                         page_slug(page),
                          class: "text-[#4a6c91] hover:text-[#243649] transition-colors duration-300",
                          data: { turbo_frame: "content", turbo_action: "advance" } %>
             </li>
@@ -28,15 +28,15 @@
         <div class="space-y-2 text-[#4a6c91] hover:text-[#243649] transition-colors duration-300">
           <p>
             <i class="fas fa-map-marker-alt mr-2"></i>
-            <span class="font-semibold"><%= t('footer.address') %></span>: <span class="text-sm"><%= I18n.locale == :en ? MyAgencyInfo.first.english_address : MyAgencyInfo.first.address %></span>
+            <span class="font-semibold"><%= t('footer.address') %></span>: <span class="text-sm"><%= myagency_info_data[:address] %></span>
           </p>
           <p>
             <i class="fas fa-phone mr-2"></i>
-            <span class="font-semibold"><%= t('footer.phone') %></span>: <span class="text-sm"><%= MyAgencyInfo.first.phone_number %></span>
+            <span class="font-semibold"><%= t('footer.phone') %></span>: <span class="text-sm"><%= myagency_info_data[:phone_number] %></span>
           </p>
           <p>
             <i class="fas fa-envelope mr-2"></i>
-            <span class="font-semibold"><%= t('footer.email') %></span>: <span class="text-sm"><%= mail_to MyAgencyInfo.first.email, 
+            <span class="font-semibold"><%= t('footer.email') %></span>: <span class="text-sm"><%= mail_to myagency_info_data[:email], 
                        class: "text-[#4a6c91] hover:text-[#243649] transition-colors duration-300" %></span>
             
           </p>
