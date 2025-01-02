@@ -1,9 +1,10 @@
 class PagesController < ApplicationController
   def show
-    @page = Page.where('slug LIKE ? OR english_slug LIKE ?', params[:slug], params[:slug]).first
-    respond_to do |format|
-      format.html
-      format.turbo_stream
+    @page = current_page
+
+    unless @page
+      session[:current_page_id] = nil
+      redirect_to root_path
     end
   end
 end

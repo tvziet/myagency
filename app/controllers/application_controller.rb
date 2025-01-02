@@ -1,20 +1,26 @@
 class ApplicationController < ActionController::Base
-  # Only allow modern browsers supporting webp images, web push, badges, import maps, CSS nesting, and CSS :has.
-  allow_browser versions: :modern
-
+  include CurrentPageConcern
   before_action :set_locale
 
   def change_locale
-    locale = params[:locale].to_s.strip.to_sym
-    if I18n.available_locales.include?(locale)
-      session[:locale] = locale
-      I18n.locale = locale
+    locale = params[:locale]
+
+    I18n.locale = locale
+    session[:locale] = locale
+
+    if session[:current_page_id].present?
+      page = Page.find_by(id: session[:current_page_id])
+      if page
+        new_slug = locale.to_s == 'en' ? page.english_slug : page.slug
+        redirect_path = page_path(new_slug)
+      else
+        redirect_path = root_path
+      end
+    else
+      redirect_path = root_path
     end
 
-    respond_to do |format|
-      format.turbo_stream { head :ok }
-      format.html { redirect_back(fallback_location: root_path) }
-    end
+    render json: { redirect_path: redirect_path }
   end
 
   private

@@ -2,8 +2,6 @@
 import { Controller } from "@hotwired/stimulus";
 
 export default class extends Controller {
-  static targets = ["selector"];
-
   connect() {
     console.log("Language controller connected");
   }
@@ -12,8 +10,8 @@ export default class extends Controller {
     event.preventDefault();
 
     const locale = event.currentTarget.dataset.locale;
+    console.log("Change locale to: ", locale);
 
-    // Get token CSRF
     const token = document.querySelector('meta[name="csrf-token"]').content;
 
     fetch("/change_locale", {
@@ -25,9 +23,10 @@ export default class extends Controller {
       },
       body: JSON.stringify({ locale: locale }),
     })
-      .then((response) => {
-        if (response.ok) {
-          window.location.reload();
+      .then((response) => response.json())
+      .then((data) => {
+        if (data.redirect_path) {
+          Turbo.visit(data.redirect_path);
         }
       })
       .catch((error) => {
