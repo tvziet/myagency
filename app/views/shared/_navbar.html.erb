@@ -27,7 +27,7 @@
           <%= link_to (I18n.locale == :en ? page.english_name : page.name),
                 page_path(I18n.locale == :en ? page.english_slug : page.slug),
                 class: "px-3 py-2 rounded-md text-sm font-medium hover:text-[#243649] hover:bg-gray-50",
-                data: { turbo_frame: "content" } %>
+                data: { turbo_frame: "content", turbo_action: "advance" } %>
         <% end %>
       </div>
       <!-- Language Switcher -->
@@ -64,7 +64,7 @@
         <%= link_to (I18n.locale == :en ? page.english_name : page.name),
                 page_path(page),
                 class: "block px-3 py-2 rounded-md text-base font-medium hover:text-[#243649] hover:bg-gray-50",
-                data: { turbo_frame: "content" } %>
+                data: { turbo_frame: "content", turbo_action: "advance" } %>
       <% end %>
     </div>
   </div>
