@@ -17,7 +17,7 @@
               <%= link_to (I18n.locale == :en ? page.english_name : page.name),
                          page_path(I18n.locale == :en ? page.english_slug : page.slug),
                          class: "text-[#4a6c91] hover:text-[#243649] transition-colors duration-300",
-                         data: { turbo_frame: "content" } %>
+                         data: { turbo_frame: "content", turbo_action: "advance" } %>
             </li>
           <% end %>
         </ul>
