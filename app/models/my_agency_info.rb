@@ -13,4 +13,7 @@
 #  updated_at      :datetime         not null
 #
 class MyAgencyInfo < ApplicationRecord
+  # Attributes
+  has_one_attached :logo
+  has_one_attached :qr_image
 end

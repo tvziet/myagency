@@ -1,7 +1,35 @@
 vi:
-  hello: "Xin chào"
+  activerecord:
+    attributes:
+      my_agency_info:
+        address: "Địa chỉ"
+        english_address: "Địa chỉ tiếng anh"
+        facebook_link: "Liên kết Facebook"
+        facebook_name: "Trang Facebook"
+        phone_number: "Số điện thoại"
+        qr_image: "Hình ảnh QR"
+      page:
+        content: "Nội dung trang"
+        english_content: "Nội dung tiếng anh"
+        english_name: "Tên tiếng anh"
+        name: "Tên"
+        position: "Vị trí trên thanh menu"
+    models:
+      my_agency_info:
+        one: "Thông tin công ty"
+        other: "Thông tin công ty"
+      page:
+        one: "Trang"
+        other: "Trang"
+  admin:
+    tabs:
+      basic_info: "Thông tin cơ bản"
+      content_info: "Nội dung"
+  errors:
+    exists_my_agency_info: "Đã tồn tại thông tin công ty. Vui lòng thực hiện chỉnh sửa thông tin công ty."
   footer:
     company_description: "Người Bạn Đồng Hành Trên Con Đường Phát Triển Sự Nghiệp"
     company_name: "Myagency"
     contact_us: "Liên Hệ"
     quick_links: "Liên Kết Nhanh"
+  hello: "Xin chào"

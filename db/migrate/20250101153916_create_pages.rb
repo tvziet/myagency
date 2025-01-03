@@ -6,6 +6,8 @@ class CreatePages < ActiveRecord::Migration[7.2]
       t.string :slug
       t.string :english_slug
       t.integer :position, default: 1
+      t.text :content
+      t.text :english_content
 
       t.timestamps
     end

@@ -1,7 +1,22 @@
 en:
-  hello: "Hello"
+  activerecord:
+    attributes:
+      page:
+        english_name: "English name"
+        name: "Name"
+        position: "Position on the menu bar"
+    models:
+      my_agency_info:
+        one: "Company Information"
+        other: "Company Information"
+      page:
+        one: "Page"
+        other: "Pages"
+  errors:
+    exists_my_agency_info: "Company information already exists. Please edit the company information."
   footer:
     company_description: "Your Companion on the Path of Career Development"
     company_name: "Myagency"
     contact_us: "Contact Us"
     quick_links: "Quick Links"
+  hello: "Hello"

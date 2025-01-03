@@ -60,4 +60,10 @@ gem 'rails-i18n', '~> 7.0'
 
 gem 'friendly_id', '~> 5.5'
 
-gem "ruby-progressbar", "~> 1.13"
+gem 'ruby-progressbar', '~> 1.13'
+
+gem 'trestle', '~> 0.10.1'
+
+gem 'trestle-auth', '~> 0.5.0'
+
+gem 'trestle-tinymce', '~> 0.4.0'

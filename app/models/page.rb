@@ -2,14 +2,16 @@
 #
 # Table name: pages
 #
-#  id           :bigint           not null, primary key
-#  english_name :string
-#  english_slug :string
-#  name         :string
-#  position     :integer          default(1)
-#  slug         :string
-#  created_at   :datetime         not null
-#  updated_at   :datetime         not null
+#  id              :bigint           not null, primary key
+#  content         :text
+#  english_content :text
+#  english_name    :string
+#  english_slug    :string
+#  name            :string
+#  position        :integer          default(1)
+#  slug            :string
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
 #
 # Indexes
 #
