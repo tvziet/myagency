@@ -3,20 +3,6 @@ Trestle.resource(:my_agency_infos) do
     item :my_agency_infos, icon: 'fas fa-info-circle', label: t('activerecord.models.my_agency_info.one')
   end
 
-  helper do
-    include Rails.application.routes.url_helpers
-
-    def display_image(attachment)
-      if attachment.attached?
-        image_tag(main_app.rails_blob_url(attachment),
-                class: 'img-thumbnail',
-                style: 'max-width: 100px; height: auto;')
-      else
-        content_tag(:span, 'No image', class: 'text-muted')
-      end
-    end
-  end
-
   table sortable: false do
     column :email
     column :address
@@ -24,11 +10,17 @@ Trestle.resource(:my_agency_infos) do
     column :phone_number
     column :facebook_name
     column :facebook_link
-    column :logo, header: -> { content_tag(:i, nil, class: 'fa fa-image') + ' Logo' } do |my_agency_info|
-      display_image(my_agency_info.logo)
+    column :logo do |my_agency_info|
+      if my_agency_info.logo.attached?
+        variant = my_agency_info.logo.variant(resize_to_limit: [100, 100])
+        image_tag(rails_blob_url(variant), class: 'img-thumbnail')
+      end
     end
-    column :qr_image, header: -> { content_tag(:i, nil, class: 'fa fa-image') + ' QR' } do |my_agency_info|
-      display_image(my_agency_info.qr_image)
+    column :qr_image do |my_agency_info|
+      if my_agency_info.qr_image.attached?
+        variant = my_agency_info.qr_image.variant(resize_to_limit: [100, 100])
+        image_tag(rails_blob_url(variant), class: 'img-thumbnail')
+      end
     end
     actions
   end
@@ -40,6 +32,25 @@ Trestle.resource(:my_agency_infos) do
     text_field :phone_number
     text_field :facebook_name
     text_field :facebook_link
+    if my_agency_info.logo.attached?
+      variant = my_agency_info.logo.variant(resize_to_limit: [100, 100])
+      static_field :current_logo, label: t('admin.static_fields.current_logo') do
+        content_tag(:img, '',
+          src: rails_blob_url(variant),
+          class: 'img-thumbnail',
+          style: 'max-width: 100px; height: auto;')
+      end
+    end
+
+    if my_agency_info.qr_image.attached?
+      variant = my_agency_info.qr_image.variant(resize_to_limit: [100, 100])
+      static_field :current_qr_image, label: t('admin.static_fields.current_qr') do
+        content_tag(:img, '',
+          src: rails_blob_url(variant),
+          class: 'img-thumbnail',
+          style: 'max-width: 100px; height: auto;')
+      end
+    end
     file_field :logo
     file_field :qr_image
   end

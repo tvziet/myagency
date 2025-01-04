@@ -67,3 +67,5 @@ gem 'trestle', '~> 0.10.1'
 gem 'trestle-auth', '~> 0.5.0'
 
 gem 'trestle-tinymce', '~> 0.4.0'
+
+gem 'image_processing', '~> 1.13'

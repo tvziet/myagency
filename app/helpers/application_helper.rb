@@ -1,4 +1,6 @@
 module ApplicationHelper
+  # include Rails.application.routes.url_helpers
+
   def page_slug(page)
     I18n.locale == :en ? page.english_slug : page.slug
   end
@@ -10,5 +12,9 @@ module ApplicationHelper
       phone_number: myagency_info.phone_number,
       email: myagency_info.email
     }
+  end
+
+  def rails_blob_url(variant)
+    Rails.application.routes.url_helpers.rails_blob_url(variant, only_path: true)
   end
 end

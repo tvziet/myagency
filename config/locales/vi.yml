@@ -16,12 +16,15 @@ vi:
         position: "Vị trí trên thanh menu"
     models:
       my_agency_info:
-        one: "Thông tin công ty"
-        other: "Thông tin công ty"
+        one: "Thông tin Myagency"
+        other: "Thông tin Myagency"
       page:
         one: "Trang"
         other: "Trang"
   admin:
+    static_fields:
+      current_logo: "Logo hiện tại"
+      current_qr: "QR hiện tại"
     tabs:
       basic_info: "Thông tin cơ bản"
       content_info: "Nội dung"
